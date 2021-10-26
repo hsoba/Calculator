@@ -24,6 +24,7 @@ namespace Calculator
         double value = 0;
         string operation = "";
         bool opSelected = false;
+        bool equalsPressed = false;
 
         public MainWindow()
         {
@@ -32,13 +33,31 @@ namespace Calculator
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            if ((displayResult.Text == "0") || opSelected)
+            if ((displayResult.Text == "0") || opSelected || equalsPressed)
             {
                 displayResult.Clear();
             }
-            opSelected = false;
+            opSelected = equalsPressed = false;
             Button b = (Button)sender;
             displayResult.Text += b.Content;
+        }
+
+        private void btnDecimal_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+
+            if (displayResult.Text.Contains(".") || equalsPressed)
+            {
+                ;
+            }
+            else if (equalsPressed || displayResult.Text == "0")
+            {
+                displayResult.Text = "0.";
+            }
+            else
+            {
+                displayResult.Text += b.Content;
+            }
         }
 
         private void btnClearEntry_Click(object sender, RoutedEventArgs e)
@@ -88,6 +107,8 @@ namespace Calculator
 
         private void btnEquals_Click(object sender, RoutedEventArgs e)
         {
+            equalsPressed = true;
+            
             equation.Content = "";
             switch (operation)
             {

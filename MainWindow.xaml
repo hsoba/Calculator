@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Calculator"
         mc:Ignorable="d"
         
+        Icon="Images/icons8-calculator-48.png"
         WindowStartupLocation="CenterScreen"
         Title="Calculator" Height="450" Width="300">
     <Grid>
@@ -41,7 +42,7 @@
 
         <Button x:Name="btn0" Grid.Row="5" Grid.Column="1" Click="btn_Click">0</Button>
 
-        <Button x:Name="btnDecimal" Grid.Row="5" Grid.Column="2" Click="btn_Click" FontSize="20">.</Button>
+        <Button x:Name="btnDecimal" Grid.Row="5" Grid.Column="2" Click="btnDecimal_Click" FontSize="20">.</Button>
 
         <!-- Math buttons -->
         <Button x:Name="btnDivide" Grid.Row="1" Grid.Column="4" FontSize="22" Click="btnDivide_Click">÷</Button>
